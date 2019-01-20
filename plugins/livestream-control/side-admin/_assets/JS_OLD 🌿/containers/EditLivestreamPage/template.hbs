@@ -1,0 +1,29 @@
+<ul id="lc-video-feed" class="lc-video-feed">
+  <li class="lc-video-feed__draggable-dotty">
+    <button id="lc-video-feed__open-form" type="button" data-micromodal-trigger="lc-video-feed-form">
+      <span>Add New Video</span>
+    </button>
+  </li>
+
+  {{#each this.data}}
+    <li class="lc-video-feed__draggable">
+      {{#> widget this}}
+        <div class="lc-widget-player" data-video-id="{{video_id}}"></div>
+      {{/widget}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#> micromodal id="lc-video-feed-form" title="Add New Video 🔥"}}
+  <label for="lc-video-feed-form__input-video-url">
+    <span>Try to insert a link to the desired video from YouTube.<br>For example: <code>https://www.youtube.com/watch?v=xuCn8ux2gbs</code></span>
+  </label>
+
+  <input id="lc-video-feed-form__input-video-url" type="text" name="video-url" placeholder="Direct video URL">
+
+  <div class="video-container" style="display: none;">
+    <div class="embed-responsive">
+      <div id="youtube-video-player"></div>
+    </div>
+  </div>
+{{/micromodal}}
