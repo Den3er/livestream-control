@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { createSelector } from 'reselect';
 
 const selectStreamFeed = state => state.streamFeed;
@@ -9,4 +7,7 @@ const countSelector = createSelector(
   state => state.get('count')
 );
 
-export { countSelector };
+export {
+  selectStreamFeed,
+  countSelector
+};
