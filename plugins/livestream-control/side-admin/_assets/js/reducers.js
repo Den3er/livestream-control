@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import EditVideoFeed from './containers/EditVideoFeed/reducer';
+import streamFeedReducer from './containers/StreamFeed/reducer';
 
 export default combineReducers({
-  EditVideoFeed
+  streamFeed: streamFeedReducer
 });
