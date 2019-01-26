@@ -2,6 +2,7 @@
 
 import { src, dest } from 'gulp';
 import stream from 'webpack-stream';
+import Dotenv from 'dotenv-webpack';
 import webpack from 'webpack';
 import { scripts as paths } from '../paths';
 
@@ -24,7 +25,8 @@ const options = {
   },
   stats: {
     warnings: false
-  }
+  },
+  plugins: [new Dotenv()]
 };
 
 const make = () =>
