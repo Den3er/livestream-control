@@ -7,21 +7,30 @@ import { countSelector } from './selectors';
 function Counter({ count, onIncrement, onIncrementAsync, onDecrement, onDecrementAsync }) {
   return (
     <div>
-      <h2>Counter</h2>
+      <h3>
+        <span style={{ marginRight: '5px' }}>Counter</span>
+        <code style={{ fontSize: '24px' }}>{count}</code>
+      </h3>
 
       <div>
         <button type="button" onClick={onDecrement}>
           -
         </button>
-        <button type="button" onClick={onIncrementAsync}>
-          --
-        </button>
-        <span>{count}</span>
-        <button type="button" onClick={onIncrement}>
+
+        <button type="button" onClick={onIncrement} style={{ marginLeft: '5px' }}>
           +
         </button>
+      </div>
+
+      <h3>Async</h3>
+
+      <div>
         <button type="button" onClick={onDecrementAsync}>
-          ++
+          -
+        </button>
+
+        <button type="button" onClick={onIncrementAsync} style={{ marginLeft: '5px' }}>
+          +
         </button>
       </div>
     </div>

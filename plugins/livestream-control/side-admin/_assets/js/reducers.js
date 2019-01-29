@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import streamFeedReducer from './containers/StreamFeed/reducer';
+import counterReducer from './containers/Counter/reducer';
 
 export default combineReducers({
-  streamFeed: streamFeedReducer
+  counter: counterReducer
 });

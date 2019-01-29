@@ -1,13 +1,13 @@
 import { createSelector } from 'reselect';
 
-const selectStreamFeed = state => state.streamFeed;
+const selectCounter = state => state.counter;
 
 const countSelector = createSelector(
-  selectStreamFeed,
+  selectCounter,
   state => state.get('count')
 );
 
 export {
-  selectStreamFeed,
+  selectCounter,
   countSelector
 };

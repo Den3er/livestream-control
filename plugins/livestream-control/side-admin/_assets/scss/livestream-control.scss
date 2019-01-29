@@ -3,11 +3,9 @@
  * included in this file.
  */
 
-// Animations
+// animations
 @import '../../../node_modules/animate.css/source/_base';
 @import '../../../node_modules/animate.css/source/fading_entrances/fadeIn';
 
-// Components
-// @import '../js/components/scss/SortableList';
-// @import '../js/components/scss/Widget';
-// @import '../js/components/scss/LivePlayer';
+// containers
+@import '../js/containers/Counter/styles';

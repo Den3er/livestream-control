@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import StreamFeed from './containers/StreamFeed';
+import Counter from './containers/Counter';
 
 const renderDOM = () => {
   const MOUNT_NODE = {
@@ -12,7 +12,7 @@ const renderDOM = () => {
   if (MOUNT_NODE.streamFeed) {
     ReactDOM.render(
       <Provider store={store}>
-        <StreamFeed />
+        <Counter />
       </Provider>,
       MOUNT_NODE.streamFeed
     );
