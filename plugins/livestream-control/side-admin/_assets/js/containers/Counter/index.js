@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { increment, incrementAsync, decrement } from './actions';
+import { increment, incrementAsync, decrement, decrementAsync } from './actions';
 import { countSelector } from './selectors';
 
-function Counter({ count, onIncrement, onIncrementAsync, onDecrement }) {
+function Counter({ count, onIncrement, onIncrementAsync, onDecrement, onDecrementAsync }) {
   return (
     <div>
       <h2>Counter</h2>
@@ -20,6 +20,9 @@ function Counter({ count, onIncrement, onIncrementAsync, onDecrement }) {
         <button type="button" onClick={onIncrement}>
           +
         </button>
+        <button type="button" onClick={onDecrementAsync}>
+          ++
+        </button>
       </div>
     </div>
   );
@@ -32,7 +35,8 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = {
   onIncrement: increment,
   onIncrementAsync: incrementAsync,
-  onDecrement: decrement
+  onDecrement: decrement,
+  onDecrementAsync: decrementAsync
 };
 
 export default connect(
