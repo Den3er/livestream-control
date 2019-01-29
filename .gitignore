@@ -16,6 +16,9 @@
 !.editorconfig
 !.prettierrc
 
+# Build directories
+plugins/livestream-control/side-admin/assets
+
 # Dependency directories
 node_modules
 
