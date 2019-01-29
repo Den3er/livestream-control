@@ -7,6 +7,7 @@ import webpack from 'webpack';
 import { scripts as paths } from '../paths';
 
 const options = {
+  mode: 'development', // 🔥
   output: {
     filename: 'livestream-control.js'
   },
