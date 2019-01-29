@@ -1,4 +1,4 @@
-import { INCREMENT, INCREMENT_REQUESTED, DECREMENT, DECREMENT_REQUESTED } from './constants';
+import { INCREMENT, INCREMENT_REQUEST, DECREMENT, DECREMENT_REQUEST } from './constants';
 
 export function increment() {
   return {
@@ -9,7 +9,7 @@ export function increment() {
 export function incrementAsync() {
   return dispatch => {
     dispatch({
-      type: INCREMENT_REQUESTED
+      type: INCREMENT_REQUEST
     });
 
     return setTimeout(() => {
@@ -29,7 +29,7 @@ export function decrement() {
 export function decrementAsync() {
   return dispatch => {
     dispatch({
-      type: DECREMENT_REQUESTED
+      type: DECREMENT_REQUEST
     });
 
     return setTimeout(() => {
