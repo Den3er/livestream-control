@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store/configureStore';
 import Counter from './containers/Counter';
+
+const store = configureStore();
 
 const renderDOM = () => {
   const MOUNT_NODE = {
