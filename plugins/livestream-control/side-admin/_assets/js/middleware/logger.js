@@ -2,17 +2,16 @@ import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
 
 export default createLogger({
-  stateTransformer: state => {
-    const newState = {};
-
-    Object.keys(state).forEach(key => {
-      if (Immutable.Iterable.isIterable(state[key])) {
-        newState[key] = state[key].toJS();
+  stateTransformer: state =>
+    Object.keys(state).reduce((result, value) => {
+      if (Immutable.Iterable.isIterable(state[value])) {
+        // eslint-disable-next-line no-param-reassign
+        result[value] = state[value].toJS();
       } else {
-        newState[key] = state[key];
+        // eslint-disable-next-line no-param-reassign
+        result[value] = state[value];
       }
-    });
 
-    return newState;
-  }
+      return result;
+    }, {})
 });
