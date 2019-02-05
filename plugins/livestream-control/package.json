@@ -41,7 +41,7 @@
     "gulp-imagemin": "^5.0.3",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "webpack": "^4.29.0",
+    "webpack": "^4.29.1",
     "webpack-stream": "^5.2.1"
   }
 }
