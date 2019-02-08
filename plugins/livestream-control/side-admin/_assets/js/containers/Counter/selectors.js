@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const selectCounter = state => state.counter;
+const selectCounter = state => state.get('counter');
 
 const countSelector = createSelector(
   selectCounter,

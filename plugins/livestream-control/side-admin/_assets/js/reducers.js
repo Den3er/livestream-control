@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import counterReducer from './containers/Counter/reducer';
 
 export default combineReducers({
