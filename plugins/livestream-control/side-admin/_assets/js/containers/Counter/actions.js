@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { INCREMENT, INCREMENT_REQUESTED, DECREMENT, DECREMENT_REQUESTED } from './constants';
+import {
+  INCREMENT,
+  INCREMENT_REQUESTED,
+  DECREMENT,
+  DECREMENT_REQUESTED,
+  LOAD_POSTS_SENT,
+  LOAD_POSTS_SUCCESS,
+  LOAD_POSTS_FAILED
+} from './constants';
 
 export function increment() {
   return {
@@ -43,7 +51,7 @@ export function decrementAsync() {
 
 export function getFakePosts() {
   return {
-    types: ['LOAD_POSTS_SENT', 'LOAD_POSTS_SUCCESS', 'LOAD_POSTS_FAILED'],
+    types: [LOAD_POSTS_SENT, LOAD_POSTS_SUCCESS, LOAD_POSTS_FAILED],
     request: () => axios.get('https://jsonplaceholder.typicode.com/posts')
   };
 }
