@@ -3,8 +3,7 @@
  * @see https://redux.js.org/recipes/reducing-boilerplate#async-action-creators
  */
 
-const validateActionTypes = types =>
-  !Array.isArray(types) || types.length !== 3 || !types.every(type => typeof type === 'string');
+import invariant from 'invariant';
 
 export default function({ dispatch }) {
   return next => action => {
@@ -14,13 +13,16 @@ export default function({ dispatch }) {
       return next(action);
     }
 
-    if (validateActionTypes(types)) {
-      throw new Error('Expected an array of three string types.');
-    }
+    invariant(
+      !(
+        !Array.isArray(types) ||
+        types.length !== 3 ||
+        !types.every(type => typeof type === 'string')
+      ),
+      'Expected an array of three string types.'
+    );
 
-    if (typeof request !== 'function') {
-      throw new Error('Expected request to be a function.');
-    }
+    invariant(typeof request === 'function', 'Expected request to be a function.');
 
     const [REQUEST_SENT, REQUEST_FAILED, REQUEST_SUCCESS] = types;
 

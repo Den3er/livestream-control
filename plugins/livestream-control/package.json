@@ -8,6 +8,7 @@
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "immutable": "^4.0.0-rc.12",
+    "invariant": "^2.2.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-player": "^1.9.3",
