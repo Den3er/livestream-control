@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { INCREMENT, INCREMENT_REQUESTED, DECREMENT, DECREMENT_REQUESTED } from './constants';
 
 export function increment() {
@@ -37,5 +38,12 @@ export function decrementAsync() {
         type: DECREMENT
       });
     }, 3000);
+  };
+}
+
+export function getFakePosts() {
+  return {
+    types: ['LOAD_POSTS_SENT', 'LOAD_POSTS_SUCCESS', 'LOAD_POSTS_FAILED'],
+    request: () => axios.get('https://jsonplaceholder.typicode.com/posts')
   };
 }

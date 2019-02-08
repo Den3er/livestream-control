@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { increment, incrementAsync, decrement, decrementAsync } from './actions';
+import { increment, incrementAsync, decrement, decrementAsync, getFakePosts } from './actions';
 import { countSelector } from './selectors';
 
-function Counter({ count, onIncrement, onIncrementAsync, onDecrement, onDecrementAsync }) {
+function Counter({
+  count,
+  onIncrement,
+  onIncrementAsync,
+  onDecrement,
+  onDecrementAsync,
+  onGetFakePosts
+}) {
   return (
     <div>
       <h3>
@@ -33,6 +40,14 @@ function Counter({ count, onIncrement, onIncrementAsync, onDecrement, onDecremen
           +
         </button>
       </div>
+
+      <h3>Async Request</h3>
+
+      <div>
+        <button type="button" onClick={onGetFakePosts}>
+          Get Fake Posts
+        </button>
+      </div>
     </div>
   );
 }
@@ -45,7 +60,8 @@ const mapDispatchToProps = {
   onIncrement: increment,
   onIncrementAsync: incrementAsync,
   onDecrement: decrement,
-  onDecrementAsync: decrementAsync
+  onDecrementAsync: decrementAsync,
+  onGetFakePosts: getFakePosts
 };
 
 export default connect(
