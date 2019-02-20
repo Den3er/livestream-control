@@ -116,33 +116,6 @@ class Stream_Control_Admin
   }
 
   /**
-   * @see https://www.advancedcustomfields.com/resources/local-json/#saving-explained
-   */
-  public function set_acf_json_save_folder($path)
-  {
-    return plugin_dir_path(__FILE__) . '/settings';
-  }
-
-  /**
-   * @see https://www.advancedcustomfields.com/resources/local-json/#loading-explained
-   */
-  public function set_acf_json_load_folder($paths)
-  {
-    unset($paths[0]);
-    $paths[] = plugin_dir_path(__FILE__) . '/settings';
-
-    return $paths;
-  }
-
-  /**
-   * Hide ACF menu for all users.
-   */
-  public function register_acf_menu()
-  {
-    return false;
-  }
-
-  /**
    * Register the stylesheets for the admin area.
    */
   public function enqueue_styles()
