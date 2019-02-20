@@ -33,7 +33,6 @@ class Stream_Control
   {
     $path = plugin_dir_path(dirname(__FILE__));
 
-    require_once $path . 'vendors/advanced-custom-fields/acf.php';
     require_once $path . 'includes/class-stream-control-loader.php';
     require_once $path . 'includes/class-stream-control-i18n.php';
     require_once $path . 'side-admin/class-stream-control-admin.php';
@@ -60,10 +59,6 @@ class Stream_Control
     $plugin_admin = new Stream_Control_Admin($this->get_plugin_name(), $this->get_version());
 
     $this->loader->add_action('init', $plugin_admin, 'register_post_type');
-
-    $this->loader->add_action('acf/settings/save_json', $plugin_admin, 'set_acf_json_save_folder');
-    $this->loader->add_action('acf/settings/load_json', $plugin_admin, 'set_acf_json_load_folder');
-    $this->loader->add_filter('acf/settings/show_admin', $plugin_admin, 'register_acf_menu');
 
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
