@@ -126,7 +126,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "livestream-control"
+                "value": "stream-control"
             }
         ]
     ],

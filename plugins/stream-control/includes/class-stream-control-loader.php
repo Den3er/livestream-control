@@ -6,7 +6,7 @@
  * list of actions and filters.
  */
 
-class Livestream_Control_Loader
+class Stream_Control_Loader
 {
   protected $actions;
   protected $filters;

@@ -5,7 +5,7 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  */
 
-class Livestream_Control_Deactivator
+class Stream_Control_Deactivator
 {
   public static function deactivate()
   {

@@ -8,8 +8,8 @@
 !*/
 
 # Recursively allow files under subtree
-!plugins/livestream-control/**
-!themes/livestream-control/**
+!plugins/stream-control/**
+!themes/stream-control/**
 
 # Configuration files
 !.gitignore
@@ -17,7 +17,7 @@
 !.prettierrc
 
 # Build directories
-plugins/livestream-control/side-admin/assets
+plugins/stream-control/side-admin/assets
 
 # Dependency directories
 node_modules

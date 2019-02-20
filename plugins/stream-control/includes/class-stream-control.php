@@ -5,7 +5,7 @@
  * the public-facing side of the site and the admin area.
  */
 
-class Livestream_Control
+class Stream_Control
 {
   protected $loader;
   protected $plugin_name;
@@ -18,8 +18,8 @@ class Livestream_Control
    */
   public function __construct()
   {
-    $this->version = LIVESTREAM_CONTROL_VERSION;
-    $this->plugin_name = 'livestream-control';
+    $this->version = STREAM_CONTROL_VERSION;
+    $this->plugin_name = 'stream-control';
 
     $this->load_dependencies();
     $this->set_locale();
@@ -34,20 +34,20 @@ class Livestream_Control
     $path = plugin_dir_path(dirname(__FILE__));
 
     require_once $path . 'vendors/advanced-custom-fields/acf.php';
-    require_once $path . 'includes/class-livestream-control-loader.php';
-    require_once $path . 'includes/class-livestream-control-i18n.php';
-    require_once $path . 'side-admin/class-livestream-control-admin.php';
+    require_once $path . 'includes/class-stream-control-loader.php';
+    require_once $path . 'includes/class-stream-control-i18n.php';
+    require_once $path . 'side-admin/class-stream-control-admin.php';
 
-    $this->loader = new Livestream_Control_Loader();
+    $this->loader = new Stream_Control_Loader();
   }
 
   /**
-   * Uses the Livestream_Control_i18n class in order to set the domain and to register
+   * Uses the Stream_Control_i18n class in order to set the domain and to register
    * the hook with WordPress.
    */
   private function set_locale()
   {
-    $plugin_i18n = new Livestream_Control_i18n();
+    $plugin_i18n = new Stream_Control_i18n();
     $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
   }
 
@@ -57,7 +57,7 @@ class Livestream_Control
    */
   private function define_admin_hooks()
   {
-    $plugin_admin = new Livestream_Control_Admin($this->get_plugin_name(), $this->get_version());
+    $plugin_admin = new Stream_Control_Admin($this->get_plugin_name(), $this->get_version());
 
     $this->loader->add_action('init', $plugin_admin, 'register_post_type');
 

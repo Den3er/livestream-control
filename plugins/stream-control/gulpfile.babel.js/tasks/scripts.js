@@ -9,7 +9,7 @@ import { scripts as paths } from '../paths';
 const options = {
   mode: 'development', // 🔥
   output: {
-    filename: 'livestream-control.js'
+    filename: 'stream-control.js'
   },
   module: {
     rules: [
