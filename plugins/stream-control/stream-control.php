@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       <code>Stream Control</code>
  * Plugin URI:        https://github.com/Den3er/stream-control
- * Description:       The easiest way to broadcast your <strong>pre-recorded videos live</strong> on WordPress. Schedule a stream from YouTube, Vimeo, VK, and other video services instantly.
+ * Description:       The easiest way to schedule and broadcast your pre-recorded videos.
  * Version:           1.0.0
  * Author:            Avakov Denis
  * Author URI:        https://github.com/den3er
