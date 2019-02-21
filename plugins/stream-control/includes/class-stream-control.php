@@ -18,7 +18,7 @@ class Stream_Control
    */
   public function __construct()
   {
-    $this->version = STREAM_CONTROL_VERSION;
+    $this->version = '1.0.0';
     $this->plugin_name = 'stream-control';
 
     $this->load_dependencies();
