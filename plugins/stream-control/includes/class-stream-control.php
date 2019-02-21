@@ -2,7 +2,7 @@
 
 /**
  * A class definition that includes attributes and functions used across both
- * the public-facing side of the site and the admin area.
+ * the public-facing side of the site and the dashboard.
  */
 
 class Stream_Control
@@ -12,9 +12,9 @@ class Stream_Control
   protected $version;
 
   /**
-   * Set the plugin name and the plugin version that can be used throughout the plugin.
-   * Load the dependencies, define the locale, and set the hooks for the admin area and
-   * the public-facing side of the site.
+   * Set the plugin name and the plugin version that can be used throughout the
+   * plugin. Load the dependencies, define the locale, and set the hooks for
+   * the dashboard and the public-facing side of the site.
    */
   public function __construct()
   {
@@ -41,8 +41,8 @@ class Stream_Control
   }
 
   /**
-   * Uses the Stream_Control_i18n class in order to set the domain and to register
-   * the hook with WordPress.
+   * Uses the Stream_Control_i18n class in order to set the domain and to
+   * register the hook with WordPress.
    */
   private function set_locale()
   {
@@ -51,14 +51,11 @@ class Stream_Control
   }
 
   /**
-   * Register all of the hooks related to the admin area functionality of the
-   * plugin and vendor admin settings.
+   * Register all of the hooks related to the admin area functionality.
    */
   private function define_admin_hooks()
   {
     $plugin_admin = new Stream_Control_Admin($this->get_plugin_name(), $this->get_version());
-
-    $this->loader->add_action('init', $plugin_admin, 'register_post_type');
 
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
