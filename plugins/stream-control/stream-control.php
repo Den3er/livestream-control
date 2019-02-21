@@ -23,6 +23,12 @@ if (!defined('WPINC')) {
 }
 
 /**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use semver.org
+ */
+define('STREAM_CONTROL_VERSION', '1.0.0');
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-stream-control-activator.php
  */

@@ -2,7 +2,7 @@
 
 /**
  * A class definition that includes attributes and functions used across both
- * the public-facing side of the site and the dashboard.
+ * the public-facing side of the site and the admin area.
  */
 
 class Stream_Control
@@ -12,13 +12,13 @@ class Stream_Control
   protected $version;
 
   /**
-   * Set the plugin name and the plugin version that can be used throughout the
-   * plugin. Load the dependencies, define the locale, and set the hooks for
-   * the dashboard and the public-facing side of the site.
+   * Set the plugin name and the plugin version that can be used throughout the plugin.
+   * Load the dependencies, define the locale, and set the hooks for the admin area and
+   * the public-facing side of the site.
    */
   public function __construct()
   {
-    $this->version = '1.0.0';
+    $this->version = STREAM_CONTROL_VERSION;
     $this->plugin_name = 'stream-control';
 
     $this->load_dependencies();
@@ -31,18 +31,18 @@ class Stream_Control
    */
   private function load_dependencies()
   {
-    $dir_path = plugin_dir_path(dirname(__FILE__));
+    $path = plugin_dir_path(dirname(__FILE__));
 
-    require_once $dir_path . 'includes/class-stream-control-loader.php';
-    require_once $dir_path . 'includes/class-stream-control-i18n.php';
-    require_once $dir_path . 'side-admin/class-stream-control-admin.php';
+    require_once $path . 'includes/class-stream-control-loader.php';
+    require_once $path . 'includes/class-stream-control-i18n.php';
+    require_once $path . 'side-admin/class-stream-control-admin.php';
 
     $this->loader = new Stream_Control_Loader();
   }
 
   /**
-   * Uses the Stream_Control_i18n class in order to set the domain and to
-   * register the hook with WordPress.
+   * Uses the Stream_Control_i18n class in order to set the domain and to register
+   * the hook with WordPress.
    */
   private function set_locale()
   {
@@ -51,11 +51,14 @@ class Stream_Control
   }
 
   /**
-   * Register all of the hooks related to the dashboard functionality.
+   * Register all of the hooks related to the admin area functionality of the
+   * plugin and vendor admin settings.
    */
   private function define_admin_hooks()
   {
     $plugin_admin = new Stream_Control_Admin($this->get_plugin_name(), $this->get_version());
+
+    $this->loader->add_action('init', $plugin_admin, 'register_post_type');
 
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
     $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
